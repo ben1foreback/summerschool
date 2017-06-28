@@ -1,12 +1,15 @@
 program subroutines
+
   use laplacian_mod
   implicit none
-! TODO: define the arrays
-  integer :: nx, ny
 
+  real, allocatable :: previous(:,:), current(:,:)
+  
+  ! As the user for input on the number of rows and columns for the array to initialize.
   write (*,*) 'Give number of rows and columns for matrix A:'
   read (*,*) nx, ny
-
+  
+  ! Allocate the variables.
   allocate(previous(nx,ny), current(nx,ny))
 
   ! initialize the array
